@@ -49,9 +49,9 @@ module top (
 
   vga_pic u_vga_pic (
       .vga_clk(vga_clk),
-      .rst_n  (rst_n),
-      .pix_x  (pix_x),
-      .pix_y  (pix_y),
+      .rst_n(rst_n),
+      .pix_x(pix_x),
+      .pix_y(pix_y),
       .data(data),
       .pix_data(pix_data)
 
