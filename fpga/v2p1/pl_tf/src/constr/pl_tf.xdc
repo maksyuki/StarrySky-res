@@ -1,0 +1,48 @@
+set_property -dict {PACKAGE_PIN L18 IOSTANDARD LVCMOS18} [get_ports sys_clk]
+set_property -dict {PACKAGE_PIN AB11 IOSTANDARD LVCMOS18} [get_ports sys_rst_n]
+set_property -dict {PACKAGE_PIN AA8 IOSTANDARD LVCMOS18} [get_ports led]
+set_property -dict {PACKAGE_PIN AA19 IOSTANDARD LVCMOS18} [get_ports sd_miso]
+set_property -dict {PACKAGE_PIN AA22 IOSTANDARD LVCMOS18} [get_ports sd_clk]
+set_property -dict {PACKAGE_PIN AB22 IOSTANDARD LVCMOS18} [get_ports sd_cs]
+set_property -dict {PACKAGE_PIN Y19 IOSTANDARD LVCMOS18} [get_ports sd_mosi]
+
+create_clock -period 20.000 -name sys_clk -waveform {0.000 10.000} [get_ports sys_clk]
+
+create_debug_core u_ila_0 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list instance_name/inst/clk_out1]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+set_property port_width 16 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {u_data_gen/rd_comp_data[0]} {u_data_gen/rd_comp_data[1]} {u_data_gen/rd_comp_data[2]} {u_data_gen/rd_comp_data[3]} {u_data_gen/rd_comp_data[4]} {u_data_gen/rd_comp_data[5]} {u_data_gen/rd_comp_data[6]} {u_data_gen/rd_comp_data[7]} {u_data_gen/rd_comp_data[8]} {u_data_gen/rd_comp_data[9]} {u_data_gen/rd_comp_data[10]} {u_data_gen/rd_comp_data[11]} {u_data_gen/rd_comp_data[12]} {u_data_gen/rd_comp_data[13]} {u_data_gen/rd_comp_data[14]} {u_data_gen/rd_comp_data[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+set_property port_width 9 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {u_data_gen/rd_right_cnt[0]} {u_data_gen/rd_right_cnt[1]} {u_data_gen/rd_right_cnt[2]} {u_data_gen/rd_right_cnt[3]} {u_data_gen/rd_right_cnt[4]} {u_data_gen/rd_right_cnt[5]} {u_data_gen/rd_right_cnt[6]} {u_data_gen/rd_right_cnt[7]} {u_data_gen/rd_right_cnt[8]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 32 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {u_data_gen/rd_sec_addr[0]} {u_data_gen/rd_sec_addr[1]} {u_data_gen/rd_sec_addr[2]} {u_data_gen/rd_sec_addr[3]} {u_data_gen/rd_sec_addr[4]} {u_data_gen/rd_sec_addr[5]} {u_data_gen/rd_sec_addr[6]} {u_data_gen/rd_sec_addr[7]} {u_data_gen/rd_sec_addr[8]} {u_data_gen/rd_sec_addr[9]} {u_data_gen/rd_sec_addr[10]} {u_data_gen/rd_sec_addr[11]} {u_data_gen/rd_sec_addr[12]} {u_data_gen/rd_sec_addr[13]} {u_data_gen/rd_sec_addr[14]} {u_data_gen/rd_sec_addr[15]} {u_data_gen/rd_sec_addr[16]} {u_data_gen/rd_sec_addr[17]} {u_data_gen/rd_sec_addr[18]} {u_data_gen/rd_sec_addr[19]} {u_data_gen/rd_sec_addr[20]} {u_data_gen/rd_sec_addr[21]} {u_data_gen/rd_sec_addr[22]} {u_data_gen/rd_sec_addr[23]} {u_data_gen/rd_sec_addr[24]} {u_data_gen/rd_sec_addr[25]} {u_data_gen/rd_sec_addr[26]} {u_data_gen/rd_sec_addr[27]} {u_data_gen/rd_sec_addr[28]} {u_data_gen/rd_sec_addr[29]} {u_data_gen/rd_sec_addr[30]} {u_data_gen/rd_sec_addr[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 16 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {u_data_gen/rd_val_data[0]} {u_data_gen/rd_val_data[1]} {u_data_gen/rd_val_data[2]} {u_data_gen/rd_val_data[3]} {u_data_gen/rd_val_data[4]} {u_data_gen/rd_val_data[5]} {u_data_gen/rd_val_data[6]} {u_data_gen/rd_val_data[7]} {u_data_gen/rd_val_data[8]} {u_data_gen/rd_val_data[9]} {u_data_gen/rd_val_data[10]} {u_data_gen/rd_val_data[11]} {u_data_gen/rd_val_data[12]} {u_data_gen/rd_val_data[13]} {u_data_gen/rd_val_data[14]} {u_data_gen/rd_val_data[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list u_data_gen/rd_start_en]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 1 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list u_data_gen/rd_val_en]]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets clk_ref]
